@@ -6,7 +6,7 @@ them in standard format.
 +91 xxxxx xxxxx
 
 The given mobile numbers may have +91 or 91 or 0 written before the actual 10
-digit number. Alternatively, there maynot be any prefix at all.
+digit number. Alternatively, there may not be any prefix at all.
 
 
 Input Format
@@ -52,7 +52,7 @@ for _ in range(NUMBER_OF_ITEMS):
 class PhoneNum:
     """Decorator constructor that standardizes mobile numbers.
 
-    The last 10 digits of the number are all we are worried about,
+    The last 10 digits of the number are all we are concerned with,
     so we will truncate any of the first characters (sometimes there
     may be a '+' sign for example) and keep only the last 10.
     Standardizes the output with a '+' sign and the passed in prefix.
@@ -74,12 +74,7 @@ class PhoneNum:
         return wrapped_func
 
 
-def phone_num(prefix):
-    def decorator(func):
-        return PhoneNum(prefix)
-    return decorator
-
-@phone_num('91')
+@PhoneNum('91')
 def sorter(num_list):
     """Sort a phone number list, standardize the formatting, and print it."""
     num_list.sort()
