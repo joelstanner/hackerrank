@@ -53,16 +53,19 @@ I would like to suggest mentioning that the vowels here are defined as AEIOU
 Copyright © 2015 HackerRank.
 All Rights Reserved
 """
-S = input()
+with open('test.txt', 'r') as file:
+    S = file.readline()
+# S = input()
 player1 = player2 = 0
+str_len = len(S)
 
 # Triangular number is total possible points e.g. 4+3+2+1 = 10
 # See wikipedia for Triangular number formula
-triangular_number = (len(S) * (len(S) + 1) // 2)
+triangular_number = (str_len * (str_len + 1) // 2)
 
 # Each index position is subtracted from total string length if it's a vowel,
 # then summed for total score
-player2 = sum([(len(S) - pos) for pos, char in enumerate(S)
+player2 = sum([(str_len - pos) for pos, char in enumerate(S)
                if char in 'AEOIU'])
 player1 = triangular_number - player2
 
