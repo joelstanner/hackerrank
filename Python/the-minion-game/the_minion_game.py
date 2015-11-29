@@ -53,9 +53,7 @@ I would like to suggest mentioning that the vowels here are defined as AEIOU
 Copyright © 2015 HackerRank.
 All Rights Reserved
 """
-with open('test.txt', 'r') as file:
-    S = file.readline()
-# S = input()
+S = input()
 player1 = player2 = 0
 str_len = len(S)
 
