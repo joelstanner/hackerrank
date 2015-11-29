@@ -53,18 +53,22 @@ I would like to suggest mentioning that the vowels here are defined as AEIOU
 Copyright © 2015 HackerRank.
 All Rights Reserved
 """
-string = input()
+S = input()
 player1 = player2 = 0
 
-for i in range(len(string)):
-    if string[i] in 'AEIOU':
-        player2 += len(string[i:])
-    else:
-        player1 += len(string[i:])
+# Triangular number is total possible points e.g. 4+3+2+1 = 10
+# See wikipedia for Triangular number formula
+triangular_number = (len(S) * (len(S) + 1) // 2)
+
+# Each index position is subtracted from total string length if it's a vowel,
+# then summed for total score
+player2 = sum([(len(S) - pos) for pos, char in enumerate(S)
+               if char in 'AEOIU'])
+player1 = triangular_number - player2
 
 if player1 > player2:
-    print("Stuart " + str(player1))
+    print("Stuart {}".format(player1))
 elif player2 > player1:
-    print("Kevin " + str(player2))
+    print("Kevin {}".format(player2))
 else:
     print("Draw")
